@@ -1,0 +1,54 @@
+
+body {
+	background-color: #FAE5D3;
+}
+
+h1 {
+	color: #EC7063;
+	font-size: 80px;
+	text-align: center;
+	font-family: Century Gothic;
+}
+
+p {
+	color: black;
+	font-size: 20px;
+	text-align: center;
+	font-family: Verdana;
+}
+
+#images {
+	text-align: center;
+}
+
+.list li{
+	font-family: Verdana;
+	font-size: 15px;
+	color: black;
+}
+
+ul {
+	text-align: center;
+	list-style: inside;
+}
+
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	font-family: verdana;
+	padding: 20px;	
+	font-size: 17px;
+}
+
+.head {
+	color: #EC7063;
+	font-family: Century Gothic;
+	font-size: 30px;
+}
+
+#img1 {
+	width: 220px;
+	height: 150px;
+}
+	
