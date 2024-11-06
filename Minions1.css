@@ -1,0 +1,111 @@
+body {
+   background-color: #FFFF99;
+}
+
+.shadowed-paragraph {
+  width: 80%; /* Limits the width of the paragraph */
+  max-width: 600px; /* Optional: sets the maximum width */
+  margin: 0 auto; /* Centers the paragraph horizontally */
+  padding: 20px; /* Optional: Adds padding inside the paragraph */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Adds the box-shadow */
+  background-color: #FFFF99; /* Optional: Adds background color */
+  border-radius: 8px; /* Optional: Rounded corners */}
+
+h1 {
+   font-family: Century Gothic;
+   text-align: Center;
+   color: #87CEFA;
+   font-size: 80px;
+}
+
+#home {
+  float: left;
+  width:50px;
+  height:50px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#video {
+    text-align: center;
+}
+
+a {
+    font-family: palatino;
+    color: gray;
+}
+
+p {
+    color: gray;
+    font-size: 25px;
+    text-align: center;
+    font-family: palatino;
+}
+  
+
+#img {
+  width:300px;
+  height:300px;
+}
+
+
+h2 {
+  text-align: center;
+  font-family: verdana;
+  color: tomato;
+  animation: pulse 1s infinite; /* Apply pulsing animation */
+  font-size: 2em; /* Initial font size */
+}
+
+@keyframes pulse {
+  0% {
+    color: tomato; /* Original color */
+    font-size: 2em;
+  }
+  50% {
+    color: rgb(255, 165, 0); /* Orange */
+    font-size: 3em;
+  }
+  100% {
+    color: tomato; /* Original color */
+    font-size: 2em;
+  }
+}
+h2.no-animation {
+  animation: none; /* Stop animation */
+}
+
+
+
+.list li{
+    font-family palatino;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+}
+
+ul {
+    text-align: center;
+    list-style: inside;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: gray;
+  font-size: 17px;
+}
+
+#img3 {
+    width: 100px;
+    height: 21px;
+}
+
+
+#large {
+    width: 300px;
+    height: 200px;
+}
