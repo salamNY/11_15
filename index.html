@@ -4,20 +4,105 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="stylingnew.css"/>
 	<title>Movies for Fun</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .thank {
+      color: rgb(0, 0, 255);
+      font-size: 2em;
+      animation: pulse 1s infinite;
+    }
+
+    /* Creating pulse effect in css */
+    @keyframes pulse {
+      0% {
+        color: rgb(0, 0, 255);
+        font-size: 2em;
+      }
+      50% {
+        color: rgb(255, 165, 0);
+        font-size: 2.3em;
+      }
+      100% {
+        color: rgb(0, 0, 255);
+        font-size: 2em;
+      }
+    }     
+
+    /* Food recommendation card styling */
+    .food-card-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .food-card {
+      width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      background-color: #f5f5f5;
+      padding: 15px;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .food-card:hover {
+      transform: scale(1.05);
+    }
+
+    .food-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .food-card .link-container {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .food-card a {
+      display: inline-block;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .food-card a:hover {
+      text-decoration: underline;
+      color: #ff6600;
+    }
+  </style>
 </head>
 
 <body>
+<header style="background-color:black; height:50px;">
+
+  
+</header>
 	<h1>Movies for Fun</h1>
 	<div id="images">
-	<a href=./minions1.html> <img src="https://images-na.ssl-images-amazon.com/images/I/519ah5qcSAL._SL500_AC_SS350_.jpg" alt=Minions Movie Poster/></a>
-	<a href=./findingdory.html> <img src="https://i.pinimg.com/originals/21/67/c8/2167c8b1301370e61ebdc006bced7cb5.jpg" alt=Finding Dory Movie Poster/></a>
-	<br>
-	<a href="./incredibles2.html"> <img src="https://www.bleedingcool.com/wp-content/uploads/2018/10/Incredibles_2_Beauty_Shots_BD_Static_Billboard_US_REVISED-350x350.jpg?x70969" alt=Incredibles 2 Movie Poster/></a>
-	<a href="./mulan.html"> <img src="https://tsdfrontcovers.files.wordpress.com/2014/02/mulanv1-fs.jpg" alt=Mulan Movie Poster/></a>
+		<a href="./minions1.html"><img src="https://images-na.ssl-images-amazon.com/images/I/519ah5qcSAL._SL500_AC_SS350_.jpg" alt="Minions Movie Poster"/></a>
+		<a href="./findingdory.html"><img src="https://i.pinimg.com/originals/21/67/c8/2167c8b1301370e61ebdc006bced7cb5.jpg" alt="Finding Dory Movie Poster"/></a>
+		<br>
+		<a href="./incredibles2.html"><img src="https://www.bleedingcool.com/wp-content/uploads/2018/10/Incredibles_2_Beauty_Shots_BD_Static_Billboard_US_REVISED-350x350.jpg?x70969" alt="Incredibles 2 Movie Poster"/></a>
+		<a href="./mulan.html"><img src="https://tsdfrontcovers.files.wordpress.com/2014/02/mulanv1-fs.jpg" alt="Mulan Movie Poster"/></a>
 	</div>
 	<br>
-	<p>Welcome to our website. We have created for you a website containing movie reviews for the childhood movies that will bring back the great memories. <br> We included four of the amazing childhood movies for you, in addition to food we recommend to eat while watching. <br><br><u>You will find the following information for each movie once you click on the image of the movie poster:</u></p>
-	<ul class="list"> 		
+	<p style="background-color:lightgrey; border-radius: 10px; padding: 15px;">
+		Welcome to our website. We have created for you a website containing movie reviews for the childhood movies that will bring back the great memories. 
+		<br> We included four of the amazing childhood movies for you, in addition to food we recommend to eat while watching. 
+		<br><br><u>You will find the following information for each movie once you click on the image of the movie poster:</u>
+	</p>
+	<ul class="list">
 		<li>Content & Star Rating</li>
 		<li>Trailer & Official Movie Poster</li>
 		<li>Directors & Starring Cast</li>
@@ -27,23 +112,60 @@
 		<li>Other Movies by the Production Company</li>
 	</ul>
 	<br>
-	<p>Thank you for visiting this website and enjoy!!</p>
+	<h1 class="thank">Thank you for visiting this website and enjoy!!</h1>
 	
 	<br>
-	<table class="center">
-		<thead class="head">
-			<th colspan="6"><strong>Food Recommendations</strong></th>
-		</thead>
-		<tr>
-			<td>Popcorn <br><img src="https://www.biggerbolderbaking.com/wp-content/uploads/2016/02/BBB110-Homemade-Microwave-Popcorn-Thumbnail-FINAL.jpg" alt="Popcorn" id="img1"/></td>
-			<td>Nachos <br><img src="https://cookthestory.com/wp-content/uploads/2018/04/Warm-Nacho-Dip.jpg" alt="Nachos" id="img1"/></td>
-			<td>Hot Dog <br><img src="https://jellytoastblog.com/wp-content/uploads/2016/06/homemade-hotdog-toppings-9-of-15.jpg" alt="Hot Dog" id="img1"/></td>
-			<td>French Fries <br><img src="https://previews.123rf.com/images/bhofack2/bhofack21503/bhofack2150300280/37262742-unhealthy-baked-crinkle-french-fries-with-ketchup.jpg" alt="French Fries" id="img1"/></td>
-			<td>Candy <br><img src="https://familydentalofteravista.com/wp-content/uploads/2017/11/candies-and-chocolate.jpg" alt="Candy" id="img1"/></td>
-			<td>Soft Drinks <br><img src="https://previews.123rf.com/images/sutsaiy/sutsaiy1111/sutsaiy111100179/11532054-traditional-asia-drink-fruit-and-herbal-cold-drink.jpg" alt="Soft Drinks" id="img1"/></td>
-		</tr>
-	</table>
+	<h2>Food Recommendations</h2>
+	<div class="food-card-container">
+		<div class="food-card">
+			<h3>Popcorn</h3>
+			<img src="https://www.biggerbolderbaking.com/wp-content/uploads/2016/02/BBB110-Homemade-Microwave-Popcorn-Thumbnail-FINAL.jpg" alt="Popcorn"/>
+			<div class="link-container">
+				<a href="https://www.simplyrecipes.com/recipes/perfect_popcorn/" target="_blank">Get Recipe</a>
+				<a href="https://uae.voxcinemas.com/home-delivery"_blank">Order Now</a>
+			</div>
+		</div>
+		<div class="food-card">
+			<h3>Nachos</h3>
+			<img src="https://cookthestory.com/wp-content/uploads/2018/04/Warm-Nacho-Dip.jpg" alt="Nachos"/>
+			<div class="link-container">
+				<a href="https://www.simplyrecipes.com/recipes/nachos/" target="_blank">Get Recipe</a>
+				<a href="https://deliveroo.ae/menu/sharjah/al-zahiya-south/vox-cinemas-al-zahia?utm_source=google&utm_medium=cpc&utm_term=&utm_campaign=%2A%2A%5EAcquisition%5ESearch%5ERestaurant%5EUnited%20Arab%20Emirates%5EAll%20Cities%5EAZH%5EExact%2BPhrase%5EAPI%5EAl%20Zahiya%5E~4506~%5E%5EIndependents%5EEN%5ELifecycle%5E%C2%A319996180450&utm_loc=9217493&utm_device=c&utm_adposition=&utm_network=g&utm_targetid=dsa-2195171775798&gclsrc=aw.ds&gad_source=1&gclid=Cj0KCQiAoae5BhCNARIsADVLzZfHsZ3gSRcoMVM7jULvId36wzcJ_AP1v9p-vYll3WivPXtHGfktgYYaAqWiEALw_wcB" target="_blank">Order Now</a>
+			</div>
+		</div>
+		<div class="food-card">
+			<h3>Hot Dog</h3>
+			<img src="https://jellytoastblog.com/wp-content/uploads/2016/06/homemade-hotdog-toppings-9-of-15.jpg" alt="Hot Dog"/>
+			<div class="link-container">
+				<a href="https://www.allrecipes.com/recipe/134483/chicago-style-hot-dog/" target="_blank">Get Recipe</a>
+				<a href="https://www.talabat.com/uae/cuisine/hot-dogs" target="_blank">Order Now</a>
+			</div>
+		</div>
+		<div class="food-card">
+			<h3>French Fries</h3>
+			<img src="https://previews.123rf.com/images/bhofack2/bhofack21503/bhofack2150300280/37262742-unhealthy-baked-crinkle-french-fries-with-ketchup.jpg" alt="French Fries"/>
+			<div class="link-container">
+				<a href="https://www.recipetineats.com/french-fries/" target="_blank">Get Recipe</a>
+				<a href="https://deliveroo.ae/menu/sharjah/al-zahiya-north/french-fries-love-azh" target="_blank">Order Now</a>
+			</div>
+		</div>
+		<div class="food-card">
+			<h3>Candy</h3>
+			<img src="https://familydentalofteravista.com/wp-content/uploads/2017/11/candies-and-chocolate.jpg" alt="Candy"/>
+			<div class="link-container">
+				<a href="https://www.allrecipes.com/recipe/35842/hard-candy/" target="_blank">Get Recipe</a>
+				<a href="https://www.talabat.com/uae/talabat-mart/snacks-chocolate/candy-gums" target="_blank">Order Now</a>
+			</div>
+		</div>
+		<div class="food-card">
+			<h3>Soft Drinks</h3>
+			<img src="https://previews.123rf.com/images/sutsaiy/sutsaiy1111/sutsaiy111100179/11532054-traditional-asia-drink-fruit-and-herbal-cold-drink.jpg" alt="Soft Drinks"/>
+			<div class="link-container">
+				<a href="https://www.loveandlemons.com/mojito-recipe/" target="_blank">Get Recipe</a>
+				<a href="https://www.talabat.com/uae/pizzaro/beverages/soft-drinks" target="_blank">Order Now</a>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
-
