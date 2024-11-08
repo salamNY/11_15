@@ -1,57 +1,251 @@
 <!DOCTYPE html>
-<!-- this file by Aseel-->
-
 <html>
-
 <head>
-	<link rel="stylesheet" type="text/css" href="pgstyle1.css"/>
-	<a href="./moviereviewshomepage.html"><img src="https://dl.myket.ir/newresizing/resize/medium/png/icon/wq.myhomebutton.png"id="home"></a> 
-	<title>Incredibles 2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.8s ease-out;
+    }
+
+    h1 {
+      color: #e62e00;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h2 {
+      color: #333;
+      margin: 1.5rem 0;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .rating {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      animation: bounce 1s ease-out;
+    }
+
+    .poster {
+      display: block;
+      margin: 2rem auto;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .poster:hover {
+      transform: scale(1.05);
+    }
+
+    .movie-info {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      animation: slideIn 1.4s ease-out;
+    }
+
+    .awards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .award-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1.6s ease-out;
+    }
+
+    .award-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pixar-movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .movie-card {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .movie-card img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .story-section {
+      position: relative;
+      padding: 2rem;
+      background: linear-gradient(45deg, #ff4b2b 0%, #ff416c 100%);
+      color: white;
+      border-radius: 10px;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .story-section::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      opacity: 0.2;
+    }
+	.video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
-
 <body>
-	<h1>Incredibles 2 <img src="http://rs276.pbsrc.com/albums/kk28/mnstrkpixels/disney%20pixels/incredibles/thdisney-incredibles-helen.gif~c200" alt="Helen GIF" id="newimg"/></h1>
-	<h2>Rated 7.7/10&nbsp;<img src="https://www.vtravel.info/wp-content/uploads/2017/09/3.5-star-rating.png" alt="3.5 stars" id="img2"/></h2>
-	<div id="video">
-	<iframe width="606" height="350" src="https://www.youtube.com/embed/i5qOzqD9Rms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-	<img src="https://www.bleedingcool.com/wp-content/uploads/2018/10/Incredibles_2_Beauty_Shots_BD_Static_Billboard_US_REVISED-350x350.jpg?x70969" alt="Official Movie Poster"/>
-	</div>
-	<br>
-	<p>
-		<strong>Directors:</strong> Brad Bird <br><br>
-		<strong>Genre:</strong> Sci-Fi Action <br><br>
-		<strong>Cast:</strong> Craig T. Nelson, Holly Hunter, Sarah Vowell, Huck Milner, Samuel L.Jackson <br><br>
-		<strong>Language:</strong> English <br><br>
-		<strong>Content Rating:</strong> PG (Parental Guidance Suggested) <br><br> 
-		<a href="https://www.imdb.com/title/tt3606756/plotsummary"><strong>The Story:</strong></a> 14 years after the release of Incredibles in 2004, they're back but this time, Helen leaves Bob at home with Violet and Dash to navigate the heroics of normal life. <br>The family is still unaware of baby Jack-Jack's superpowers.<br>The family and Frozone will have to work together to fight the new villain.
-	</p>
-	<br>
-	<h2>Awards Won:</h2>
-		<ul class="list">
-			<li>People's Choice Award for Favorite Family Movie</li><img src="https://assets-us.votenow.tv/projects/pca/2018/link_share_1200x630_v01.jpg" alt="People's Choice Awards" id="img3"/>
-<br>
-<br>
-			<li>Teen Choice Award for Choice Movie of the Summer</li><img src="https://upload.wikimedia.org/wikipedia/en/4/49/2018-teen-choice-awards-logo.jpg" alt="Teen Choice Awards" id="img3"/> <br>
-		</ul>
-		<br>
-	<h3>Other Movies by Pixar Animation Studios:</h3>
-		<table class="center">
-			<tbody>
-				<tr>
-					<td><img src="https://images-na.ssl-images-amazon.com/images/I/716RrNAAMQL._SY445_.jpg" alt="The Incredibles" id="resize"</td>
-					<td><img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Inside_Out_%282015_film%29_poster.jpg" alt="Inside Out" id="resize"</td>
-					<td><img src="https://images-na.ssl-images-amazon.com/images/I/51MJQKcJVFL.jpg" alt="Ratatouille" id="resize"</td>
-					<td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Monsters_University_poster_3.jpg/220px-Monsters_University_poster_3.jpg" alt="Monsters University" id="resize"</td>
-				</tr>
-				<tr>
-					<td><u>The Incredibles</u> <br> November 5, 2004</td>
-					<td><u>Inside Out</u> <br> June 18, 2015</td>
-					<td><u>Ratatouille</u> <br> June 28, 2007</td>
-					<td><u>Monsters University</u> <br> June 5, 2013</td>
-				</tr>
-			</tbody>
-		</table>
-		
-</body>
+  <div class="container">
+    <h1>Incredibles 2</h1>
+    
+    <div class="rating">
+      <h2>Rated 7.7/10</h2>
+    </div>
 
+	<img src="https://www.bleedingcool.com/wp-content/uploads/2018/10/Incredibles_2_Beauty_Shots_BD_Static_Billboard_US_REVISED-350x350.jpg" alt="Official Movie Poster" class="poster">
+
+	<div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/i5qOzqD9Rms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  </div>
+
+
+    <div class="movie-info">
+      <p><strong>Directors:</strong> Brad Bird</p>
+      <p><strong>Genre:</strong> Sci-Fi Action</p>
+      <p><strong>Cast:</strong> Craig T. Nelson, Holly Hunter, Sarah Vowell, Huck Milner, Samuel L.Jackson</p>
+      <p><strong>Language:</strong> English</p>
+      <p><strong>Content Rating:</strong> PG (Parental Guidance Suggested)</p>
+    </div>
+
+    <div class="story-section">
+      <h2>The Story</h2>
+      <p>14 years after the release of Incredibles in 2004, they're back but this time, Helen leaves Bob at home with Violet and Dash to navigate the heroics of normal life. The family is still unaware of baby Jack-Jack's superpowers. The family and Frozone will have to work together to fight the new villain.</p>
+    </div>
+
+    <h2>Awards Won</h2>
+    <div class="awards">
+      <div class="award-card">
+        <h3>People's Choice Award</h3>
+        <p>Favorite Family Movie</p>
+      </div>
+      <div class="award-card">
+        <h3>Teen Choice Award</h3>
+        <p>Choice Movie of the Summer</p>
+      </div>
+    </div>
+
+    <h2>Other Movies by Pixar Animation Studios</h2>
+    <div class="pixar-movies">
+      <div class="movie-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/716RrNAAMQL._SY445_.jpg" alt="The Incredibles">
+        <p>The Incredibles</p>
+        <p>November 5, 2004</p>
+      </div>
+      <div class="movie-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Inside_Out_%282015_film%29_poster.jpg" alt="Inside Out">
+        <p>Inside Out</p>
+        <p>June 18, 2015</p>
+      </div>
+      <div class="movie-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51MJQKcJVFL.jpg" alt="Ratatouille">
+        <p>Ratatouille</p>
+        <p>June 28, 2007</p>
+      </div>
+      <div class="movie-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Monsters_University_poster_3.jpg/220px-Monsters_University_poster_3.jpg" alt="Monsters University">
+        <p>Monsters University</p>
+        <p>June 5, 2013</p>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
