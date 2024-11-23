@@ -1,4 +1,4 @@
-// Movie data structure
+// movies array
 const movies = [
     {
         title: "Minions",
@@ -20,7 +20,7 @@ const movies = [
     }
 ];
 
-// Dark mode implementation
+// dark mode
 function initializeDarkMode() {
     const darkModeToggle = document.createElement('button');
     darkModeToggle.innerHTML = '🌙';
@@ -53,40 +53,47 @@ function initializeSearch() {
     });
 }
 
-// Movie rating system
+// rating funtion
 function initializeRating() {
-    const movieCards = document.querySelectorAll('.movie-card');
-    
-    movieCards.forEach(card => {
-        const ratingContainer = document.createElement('div');
-        ratingContainer.className = 'rating-container';
-        ratingContainer.innerHTML = `
-            <div class="stars">
-                ${Array(5).fill().map((_, i) => 
-                    `<span class="star" data-rating="${i + 1}">⭐</span>`
-                ).join('')}
-            </div>
-            <span class="rating-count">0 ratings</span>
-        `;
-        
+    document.querySelectorAll('.movie-card').forEach(card => {
+        const ratingContainer = createRatingContainer();
         card.querySelector('.movie-info').appendChild(ratingContainer);
     });
+         document.addEventListener('click', handleStarClick);
+}
 
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('star')) {
-            const container = e.target.closest('.rating-container');
-            const stars = container.querySelectorAll('.star');
-            const rating = e.target.dataset.rating;
-            
-            stars.forEach((star, index) => {
-                star.style.opacity = index < rating ? '1' : '0.3';
-            });
-            
-            const countSpan = container.querySelector('.rating-count');
-            const currentCount = parseInt(countSpan.textContent);
-            countSpan.textContent = `${currentCount + 1} ratings`;
-        }
+function createRatingContainer() {
+    const container = document.createElement('div');
+    container.className = 'rating-container';
+    const starsHtml = '⭐'.repeat(5);
+    
+    container.innerHTML = `
+        <div class="stars">
+            <span class="star" data-rating="1">${starsHtml[0]}</span>
+            <span class="star" data-rating="2">${starsHtml[1]}</span>
+            <span class="star" data-rating="3">${starsHtml[2]}</span>
+            <span class="star" data-rating="4">${starsHtml[3]}</span>
+            <span class="star" data-rating="5">${starsHtml[4]}</span>
+        </div>
+        <span class="rating-count">0 ratings</span>
+    `;
+    
+    return container;
+}
+
+function handleStarClick(event) {
+    if (!event.target.classList.contains('star')) return;
+    
+    const container = event.target.closest('.rating-container');
+    const rating = parseInt(event.target.dataset.rating);
+
+    container.querySelectorAll('.star').forEach((star, index) => {
+        star.style.opacity = index < rating ? '1' : '0.3';
     });
+    
+    const countSpan = container.querySelector('.rating-count');
+    const currentCount = parseInt(countSpan.textContent);
+    countSpan.textContent = `${currentCount + 1} ratings`;
 }
 
 // Movie details modal
