@@ -1,127 +1,253 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="Findingdory.css"/>
-	<a href="./moviereviewshomepage.html"><img src="https://dl.myket.ir/newresizing/resize/medium/png/icon/wq.myhomebutton.png" id="home"></a> 
-	<title>Finding Dory</title>
-	<style>
-		body {
-			background-color: #add8e6; /* Light blue background */
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			line-height: 1.6;
-			margin: 0;
-			padding: 0;
-		}
+  <script src="script.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-		h1 {
-			text-align: center;
-			color: #333;
-		}
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 2rem;
+      line-height: 1.6;
+    }
 
-		h2 {
-			color: #333;
-			text-align: center;
-		}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.8s ease-out;
+    }
 
-		#video {
-			text-align: center;
-			margin: 20px 0;
-		}
+    h1 {
+      color: #e62e00;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      animation: fadeIn 1s ease-out;
+    }
 
-		p {
-			padding: 1rem;
-			background: white;
-			border-radius: 10px;
-			margin: 1.5rem;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-			font-size: 1rem;
-		}
+    h2 {
+      color: #333;
+      margin: 1.5rem 0;
+      animation: fadeIn 1.2s ease-out;
+    }
 
-		.list {
-			list-style-type: none;
-			padding: 0;
-		}
+    .rating {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      animation: bounce 1s ease-out;
+    }
 
-		.list li {
-			padding: 1rem;
-			background: white;
-			border-radius: 10px;
-			margin: 1.5rem 0;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-		}
+    .poster {
+      display: block;
+      margin: 2rem auto;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
 
-		#resize {
-			width: 80px;
-			height: 80px;
-		}
+    .poster:hover {
+      transform: scale(1.05);
+    }
 
-		.center {
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
-		}
+    .movie-info {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      animation: slideIn 1.4s ease-out;
+    }
 
-		.center img {
-			width: 120px;
-			height: 180px;
-			margin: 0 10px;
-			border-radius: 10px;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-		}
+    .awards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
 
-		table {
-			width: 80%;
-			margin: auto;
-		}
+    .award-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1.6s ease-out;
+    }
 
-		td {
-			text-align: center;
-			padding: 10px;
-			font-weight: bold;
-		}
-	</style>
+    .award-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pixar-movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .movie-card {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height:80%;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .story-section {
+      position: relative;
+      padding: 2rem;
+      background: linear-gradient(45deg, #ff4b2b 0%, #ff416c 100%);
+      color: white;
+      border-radius: 10px;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .story-section::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      opacity: 0.2;
+    }
+	.video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
-
 <body>
-	<h1>Finding Dory <img src="http://clipart-library.com/data_images/41511.gif" alt="Helen GIF" id="newimg"/></h1>
-	<h2>Rated 7.4/10 <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Star_rating_3.5_of_5.png" alt="3.5 stars" id="img2"/></h2>
+  <div class="container">
+    <h1>Finding Dory</h1>
+    
+    <div class="rating">
+      <h2>Rated 7.4/10</h2>
+    </div>
 
-	<div id="video">
-		<iframe width="660" height="350" src="https://www.youtube.com/embed/JhvrQeY3doI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<img src="https://i.pinimg.com/originals/21/67/c8/2167c8b1301370e61ebdc006bced7cb5.jpg" alt="Finding Dory Movie Poster"/>
-	</div>
+	<img src="https://i.pinimg.com/originals/21/67/c8/2167c8b1301370e61ebdc006bced7cb5.jpg" alt="Official Movie Poster" class="poster">
 
-	<p>
-		<strong>Director:</strong> Andrew Stanton<br><br>
-		<strong>Genre:</strong> Comedy-drama/Adventure <br><br>
-		<strong>Cast:</strong> Ellen DeGeneres, Albert Brooks, Ed O'Neill, Kaitlin Olson, Hayden Rolence, Ty Burrell, Diane Keaton <br><br>
-		<strong>Language:</strong> English <br><br>
-		<strong>Content Rating:</strong> PG (Parental Guidance Suggested) <br><br>
-		<a href="https://www.imdb.com/title/tt2277860/plotsummary"><strong>The Story:</strong></a> Dory (Ellen DeGeneres) is a wide-eyed, blue tang fish who suffers from memory loss every 10 seconds or so. The one thing she can remember is that she somehow became separated from her parents as a child. With help from her friends Nemo and Marlin, Dory embarks on an epic adventure to find them. Her journey brings her to the Marine Life Institute, a conservatory that houses diverse ocean species. Dory now knows that her family reunion will only happen if she can save mom and dad from captivity.
-	</p>
+	<div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/JhvrQeY3doI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  </div>
 
-	<h2>Awards Won:</h2>
-	<ul class="list">
-		<li>People's Choice Award for Favorite Movie <img src="https://akns-images.eonline.com/eol_images/Entire_Site/2017017/rs_1024x759-170117155409-1024-peoples-choice-trophy.jpg?fit=around%7C1024:759&output-quality=90&crop=1024:759;center,top" width ="100" height="100" alt="fav movie award"/></li>
-		<li>Nickelodeon Brazil Kids' Choice Award for Favorite Animation Film <img src="https://2.bp.blogspot.com/-Vv_lM2jRn24/XEJc5X0JnBI/AAAAAAABC3o/MkfjLJrxcDAVV77E93LiaBPWGa8Q3SWqACLcBGAs/s1600/Nickelodeon-32nd-Kids-Choice-Awards-2019-Logo-KCA-Nick-KCAs-International_2.jpg" alt="Nickelodeon" id="resize"/></li>
-	</ul>
 
-	<h2>Other Movies by Pixar Animation Studios:</h2>
-	<table class="center">
-		<tbody>
-			<tr>
-				<td><img src="https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_UX182_CR0,0,182,268_AL_.jpg" id="big"/></td>
-				<td><img src="https://images-na.ssl-images-amazon.com/images/I/71hSyy%2B1myL._SX355_.jpg" id="big"/></td>
-				<td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Toy_Story.jpg/220px-Toy_Story.jpg" id="big"/></td>
-				<td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Brave_Poster.jpg/220px-Brave_Poster.jpg" id="big"/></td>
-			</tr>
-			<tr>
-				<td> <u>Monsters Inc</u><br>November 2, 2001</td>
-				<td> <u>Finding Nemo</u><br>May 30, 2003 </td>
-				<td> <u>Toy Story 4</u><br>June 19, 2019 </td>
-				<td> <u>Brave</u><br>July 21, 2012 </td>
-			</tr>
-		</tbody>
-	</table>
+    <div class="movie-info">
+      <p><strong>Directors:</strong>Andrew Stanton</p>
+      <p><strong>Genre:</strong>Comedy-drama/Adventure</p>
+      <p><strong>Cast:</strong> Ellen DeGeneres, Albert Brooks, Ed O'Neill, Kaitlin Olson, Hayden Rolence, Ty Burrell, Diane Keaton</p>
+      <p><strong>Language:</strong> English</p>
+      <p><strong>Content Rating:</strong>PG (Parental Guidance Suggested)</p>
+    </div>
+
+    <div class="story-section">
+      <h2>The Story</h2>
+      <p>Dory (Ellen DeGeneres) is a wide-eyed, blue tang fish who suffers from memory loss every 10 seconds or so. The one thing she can remember is that she somehow became separated from her parents as a child. With help from her friends Nemo and Marlin, Dory embarks on an epic adventure to find them. Her journey brings her to the Marine Life Institute, a conservatory that houses diverse ocean species. Dory now knows that her family reunion will only happen if she can save mom and dad from captivity.</p>
+    </div>
+
+    <h2>Awards Won</h2>
+    <div class="awards">
+      <div class="award-card">
+        <h3>BAFTA 2017</h3>
+        <p>Best Animated Film</p>
+      </div>
+      <div class="award-card">
+        <h3>22 Critics Choice Awards</h3>
+        <p>Best Animated Feature</p>
+      </div>
+    </div>
+
+    <h2>Other Movies by Pixar Animation Studios</h2>
+    <div class="pixar-movies">
+      <div class="movie-card">
+       <img src="https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Monsters Poster">
+        <p>Monsters Inc</p>
+        <p>November 2, 2001</p>
+      </div>
+      <div class="movie-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71hSyy%2B1myL._SX355_.jpg" alt="Finding Nemo Poster">
+        <p>Finding Nemo</p>
+        <p>May 30, 2003</p>
+      </div>
+      <div class="movie-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Toy_Story.jpg/220px-Toy_Story.jpg" alt="Toy Story Poster">
+        <p>Toy Story</p>
+        <p>June 19, 2019</p>
+      </div>
+      <div class="movie-card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Brave_Poster.jpg/220px-Brave_Poster.jpg" alt="Brave Poster">
+        <p>Brave</p>
+        <p>July 21, 2012</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
