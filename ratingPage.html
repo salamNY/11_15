@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Rating Page</title>
+    <link rel="stylesheet" href="ratingPage.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🎬 Movie Ratings</div>
+        <button id="toggleDarkMode" aria-label="Toggle Dark Mode">🌙</button>
+    </nav>
+    <section class="hero">
+        <h2>Discover and Rate Movies</h2>
+        <input type="text" id="searchBar" placeholder="Search by Genre or Rating...">
+    </section>
+    <div class="container">
+        <div class="movie-grid" id="movieGrid"></div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <span class="close-btn" aria-label="Close Modal">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalGenre"></p>
+            <p id="modalRating"></p>
+        </div>
+    </div>
+    <script src="ratingPage.js"></script>
+</body>
+</html>
