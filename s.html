@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<charset meta="utf-8">
+	<title>Form</title>
+<body>
+    <h1>Movie Review Form</h1>
+    <!-- Begin the form -->
+    <form method="post" action="">
+        <!-- User Input for Name -->
+        <label for="name">Your Name:</label>
+        <input type="text" value="name" name="name" placeholder="Enter your full name" required autofocus>
+        <br><br>
+
+        <!-- User Input for Email -->
+        <label for="email">Your Email:</label>
+        <input type="email" value="email" name="email" placeholder="example@mail.com" required>
+        <br><br>
+
+        <!-- User Input for Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" value="phone" name="phone" placeholder="(05X)-XXX-XXXX" pattern="\(\d{3}\) \d{3}-\d{4}" required>
+
+        <br><br>
+
+        <!-- User Input for Date -->
+        <label for="date">Date Watched:</label>
+        <input type="date" value="date" name="date">
+        <br><br>
+
+        <!-- Dropdown for Movie Selection -->
+        <label>Select a movie:</label>
+        <select name="movie" value="movie" required>
+            <option value="finding_dory" selected>Finding Dory</option>
+            <option value="finding_nemo">Finding Nemo</option>
+            <option value="mulan">Mulan</option>
+            <option value="minions">Minions</option>
+        </select>
+        <br><br>
+
+        <!-- Checkbox Options -->
+        <p><strong>What did you like about the movie?</strong></p>
+        <label>
+            Story
+            <input name="thingsliked" type="checkbox" value="Story">
+        </label><br>
+        <label>
+            Animation
+            <input name="thingsliked" type="checkbox" value="Animation">
+        </label><br>
+        <label>
+            Music
+            <input name="thingsliked" type="checkbox" value="Music">
+        </label><br>
+        <label>
+            Characters
+            <input name="thingsliked" type="checkbox" value="Characters">
+        </label><br>
+        <label>
+            Visual Effects
+            <input name="thingsliked" type="checkbox" value="Visual Effects">
+        </label><br>
+        <label>
+            Dialogues
+            <input name="thingsliked" type="checkbox" value="Dialogues">
+        </label>
+        <br><br>
+
+        <!-- Dropdown for Sentiment -->
+        <p><strong>How did the movie make you feel?</strong></p>
+        <label>
+            <select name="sentiment">
+                <option value="" disabled selected>Select your sentiment</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="bored">Bored</option>
+                <option value="thrilled">Thrilled</option>
+                <option value="disappointed">Disappointed</option>
+            </select>
+        </label>
+        <br><br>
+
+        <!-- Star Rating -->
+        <label>Rate the movie (1-5):</label>
+        <input type="number" value="rating" name="rating" min="1" max="5" step="1" placeholder="Enter a number from 1 to 5" required>
+        <br><br>
+
+        <!-- Textarea for Review -->
+        <label>Your Review:</label>
+        <textarea value="review" name="review" rows="4" cols="50" placeholder="Write your thoughts about the movie..."></textarea>
+        <br><br>
+
+        <!-- Submit and Reset Buttons -->
+        <input type="submit" value="Submit Review">
+        <input type="reset" value="Reset Form">
+    </form>
+    <!-- End of the form -->
+</body>
+</html>
