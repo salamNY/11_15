@@ -4,29 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Rating Page</title>
-    <link rel="stylesheet" href="ratingPage.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="checkbox"], textarea, button {
+            margin-top: 5px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+        }
+
+        .rating span {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .rating span:hover,
+        .rating span.selected {
+            color: gold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.submit {
+            background-color: #28a745;
+            color: white;
+        }
+
+        button.reset {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">🎬 Movie Ratings</div>
-        <button id="toggleDarkMode" aria-label="Toggle Dark Mode">🌙</button>
-    </nav>
-    <section class="hero">
-        <h2>Discover and Rate Movies</h2>
-        <input type="text" id="searchBar" placeholder="Search by Genre or Rating...">
-    </section>
+    <h1>Movie Rating Page</h1>
     <div class="container">
-        <div class="movie-grid" id="movieGrid"></div>
+        <form id="ratingForm">
+            <p><strong>Select the movie you want to rate:</strong></p>
+            <label>
+                <select name="movie" required>
+                    <option value="" disabled selected>Select a movie</option>
+                    <option value="Mulan">Mulan</option>
+                    <option value="Finding Nemo">Finding Nemo</option>
+                    <option value="Finding Dory">Finding Dory</option>
+                    <option value="Minions">Minions</option>
+                </select>
+            </label>
+            <br><br>
+
+            <p><strong>What did you like about the movie?</strong></p>
+            <label>
+                Story
+                <input name="thingsliked" type="checkbox" value="Story">
+            </label><br>
+            <label>
+                Animation
+                <input name="thingsliked" type="checkbox" value="Animation">
+            </label><br>
+            <label>
+                Music
+                <input name="thingsliked" type="checkbox" value="Music">
+            </label><br>
+            <label>
+                Characters
+                <input name="thingsliked" type="checkbox" value="Characters">
+            </label><br>
+            <label>
+                Visual Effects
+                <input name="thingsliked" type="checkbox" value="Visual Effects">
+            </label><br>
+            <label>
+                Dialogues
+                <input name="thingsliked" type="checkbox" value="Dialogues">
+            </label><br><br>
+
+            <p><strong>How did the movie make you feel?</strong></p>
+            <label>
+                <select name="sentiment">
+                    <option value="" disabled selected>Select your sentiment</option>
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="excited">Excited</option>
+                    <option value="bored">Bored</option>
+                    <option value="thrilled">Thrilled</option>
+                    <option value="disappointed">Disappointed</option>
+                </select>
+            </label>
+            <br><br>
+
+            <p><strong>Rate the movie:</strong></p>
+            <div class="rating" id="ratingStars">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" name="rating" id="rating" value="">
+
+            <br><p><strong>Leave a comment (optional):</strong></p>
+            <textarea name="comment" placeholder="Write your thoughts here..."></textarea>
+
+            <div class="buttons">
+                <button type="button" class="submit" id="submitButton">Submit</button>
+                <button type="reset" class="reset">Reset</button>
+            </div>
+        </form>
     </div>
-    <!-- Modal Structure -->
-    <div id="modal" class="modal">
-        <div class="modal-content" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-            <span class="close-btn" aria-label="Close Modal">&times;</span>
-            <h3 id="modalTitle"></h3>
-            <p id="modalGenre"></p>
-            <p id="modalRating"></p>
-        </div>
-    </div>
-    <script src="ratingPage.js"></script>
+
+    <script>
+        // Handle star rating
+        const stars = document.querySelectorAll("#ratingStars span");
+        const ratingInput = document.getElementById("rating");
+
+        stars.forEach(star => {
+            star.addEventListener("click", function () {
+                // Remove selection from all stars
+                stars.forEach(s => s.classList.remove("selected"));
+                // Add selection to clicked star and previous stars
+                this.classList.add("selected");
+                let rating = this.getAttribute("data-value");
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add("selected");
+                }
+                // Update hidden input
+                ratingInput.value = rating;
+            });
+        });
+
+        // Handle form submission
+        document.getElementById("submitButton").addEventListener("click", function () {
+            const form = document.getElementById("ratingForm");
+            if (form.checkValidity()) {
+                alert("Submitted successfully!");
+                window.location.href = "index.html"; // Simulate returning to home page
+            } else {
+                alert("Please fill out all required fields.");
+            }
+        });
+    </script>
 </body>
 </html>
