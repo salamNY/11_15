@@ -138,7 +138,7 @@
          var name = window.prompt("Please enter your name");
 
         // If a name is provided, display the personalized greeting
-        if (name) {
+        if (name!==null) {
             document.getElementById("personalGreeting").innerText = 
                 "Hi " + name + ", relive your childhood favorites!";
         } else {
