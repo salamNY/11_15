@@ -90,7 +90,7 @@
         <form id="ratingForm">
             <p><strong>Select the movie you want to rate:</strong></p>
             <label>
-                <select name="movie" required>
+                <select name="movie" id="watched" required>
                     <option value="" disabled selected>Select a movie</option>
                     <option value="Mulan">Mulan</option>
                     <option value="Finding Nemo">Finding Nemo</option>
@@ -103,32 +103,32 @@
             <p><strong>What did you like about the movie?</strong></p>
             <label>
                 Story
-                <input name="thingsliked" type="checkbox" value="Story">
+                <input id="likeStory" name="thingsliked" type="checkbox" value="Story">
             </label><br>
             <label>
                 Animation
-                <input name="thingsliked" type="checkbox" value="Animation">
+                <input id="likeAnimation" name="thingsliked" type="checkbox" value="Animation">
             </label><br>
             <label>
                 Music
-                <input name="thingsliked" type="checkbox" value="Music">
+                <input id="likeMusic" name="thingsliked" type="checkbox" value="Music">
             </label><br>
             <label>
                 Characters
-                <input name="thingsliked" type="checkbox" value="Characters">
+                <input id="likeCharacters" name="thingsliked" type="checkbox" value="Characters">
             </label><br>
             <label>
                 Visual Effects
-                <input name="thingsliked" type="checkbox" value="Visual Effects">
+                <input id="likeVisualEffects" name="thingsliked" type="checkbox" value="Visual Effects">
             </label><br>
             <label>
                 Dialogues
-                <input name="thingsliked" type="checkbox" value="Dialogues">
+                <input id="likeDialogues" name="thingsliked" type="checkbox" value="Dialogues">
             </label><br><br>
 
             <p><strong>How did the movie make you feel?</strong></p>
             <label>
-                <select name="sentiment">
+                <select id="feel" name="sentiment">
                     <option value="" disabled selected>Select your sentiment</option>
                     <option value="happy">Happy</option>
                     <option value="sad">Sad</option>
@@ -151,13 +151,14 @@
             <input type="hidden" name="rating" id="rating" value="">
 
             <br><p><strong>Leave a comment (optional):</strong></p>
-            <textarea name="comment" placeholder="Write your thoughts here..."></textarea>
+            <textarea id="write" name="comment" placeholder="Write your thoughts here..."></textarea>
 
             <div class="buttons">
                 <button type="button" class="submit" id="submitButton">Submit</button>
-                <button type="reset" class="reset">Reset</button>
+                <button type="reset" class="reset" id="reset">Reset</button>
             </div>
         </form>
+        <p id="helpText"></p>
     </div>
 
     <script>
@@ -190,6 +191,47 @@
                 alert("Please fill out all required fields.");
             }
         });
+
+        var helpArray = [
+            "Choose the watched movie",
+            "What did you like about the movie?",
+            "How did the movie make you feel?",
+            "Rate the movie",
+            "Enter any comments here that you'd like us to read.",
+            "This button submits the form to the server-side script.",
+            "This button clears the form."
+        ];
+
+        var helpText;
+
+        // initialize helpTextDiv and register event handlers
+        function init() {
+            helpText = document.getElementById("helpText");
+            registerListeners(document.getElementById("watched"), 0);
+            registerListeners(document.getElementById("likeStory"), 1);
+            registerListeners(document.getElementById("likeAnimation"), 1);
+            registerListeners(document.getElementById("likeMusic"), 1);
+            registerListeners(document.getElementById("likeCharacters"), 1);
+            registerListeners(document.getElementById("likeVisualEffects"), 1);
+            registerListeners(document.getElementById("likeDialogues"), 1);
+            registerListeners(document.getElementById("feel"), 2);
+            registerListeners(document.getElementById("ratingStars"), 3);
+            registerListeners(document.getElementById("write"), 4);
+            registerListeners(document.getElementById("submitButton"), 5);
+            registerListeners(document.getElementById("reset"), 6);
+        }
+
+        // utility function to help register events
+        function registerListeners(object, messageNumber) {
+            object.addEventListener("focus", function () {
+                helpText.innerHTML = helpArray[messageNumber];
+            }, false);
+            object.addEventListener("blur", function () {
+                helpText.innerHTML = helpArray[6];
+            }, false);
+        }
+
+        window.addEventListener("load", init, false);
     </script>
 </body>
 </html>
