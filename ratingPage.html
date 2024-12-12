@@ -160,92 +160,78 @@
         </form>
         <p id="helpText"></p>
     </div>
-
     <script>
-    // Get the stars and help text elements
-    const stars = document.querySelectorAll("#ratingStars span");
-    const helpText = document.getElementById("helpText");
-    const ratingInput = document.getElementById("rating");
+        // Handle star rating
+        const stars = document.querySelectorAll("#ratingStars span");
+        const ratingInput = document.getElementById("rating");
 
-    // Handle hover, click, and selection of stars
-    stars.forEach(star => {
-        star.addEventListener("mouseover", function () {
-            const ratingValue = star.getAttribute("data-value");  // Get the value of the hovered star
-            helpText.innerHTML = `Click to rate ${ratingValue} star${ratingValue > 1 ? 's' : ''}`;
+        stars.forEach(star => {
+            star.addEventListener("click", function () {
+                // Remove selection from all stars
+                stars.forEach(s => s.classList.remove("selected"));
+                // Add selection to clicked star and previous stars
+                this.classList.add("selected");
+                let rating = this.getAttribute("data-value");
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add("selected");
+                }
+                // Update hidden input
+                ratingInput.value = rating;
+            });
         });
 
-        // Reset help text when the mouse leaves the star
-        star.addEventListener("mouseout", function () {
-            helpText.innerHTML = "Hover over the stars to see the rating.";
-        });
-
-        // When the star is clicked, set the rating
-        star.addEventListener("click", function () {
-            // Remove selection from all stars
-            stars.forEach(s => s.classList.remove("selected"));
-            // Add selection to clicked star and previous stars
-            let rating = star.getAttribute("data-value");
-            for (let i = 0; i < rating; i++) {
-                stars[i].classList.add("selected");
+        // Handle form submission
+        document.getElementById("submitButton").addEventListener("click", function () {
+            const form = document.getElementById("ratingForm");
+            if (form.checkValidity()) {
+                alert("Submitted successfully!");
+                window.location.href = "index.html"; // Simulate returning to home page
+            } else {
+                alert("Please fill out all required fields.");
             }
-            // Update the hidden input with the rating value
-            ratingInput.value = rating;
-            helpText.innerHTML = `You selected ${rating} star${rating > 1 ? 's' : ''}.`;  // Show confirmation message
         });
-    });
 
-    // Handle form submission
-    document.getElementById("submitButton").addEventListener("click", function () {
-        const form = document.getElementById("ratingForm");
-        if (form.checkValidity()) {
-            alert("Submitted successfully!");
-            window.location.href = "index.html"; // Simulate returning to home page
-        } else {
-            alert("Please fill out all required fields.");
+        var helpArray = [
+            "Choose the watched movie",
+            "What did you like about the movie?",
+            "What did you feel after watching the movie ? ",
+            "Rate the movie",
+            "Enter any comments here that you'd like us to read",
+            "Form Submitted!",
+            "Form Reseted"
+        ];
+
+        var helpText;
+
+        // initialize helpTextDiv and register event handlers
+        function init() {
+            helpText = document.getElementById("helpText");
+            registerListeners(document.getElementById("watched"), 0);
+            registerListeners(document.getElementById("likeStory"), 1);
+            registerListeners(document.getElementById("likeAnimation"), 1);
+            registerListeners(document.getElementById("likeMusic"), 1);
+            registerListeners(document.getElementById("likeCharacters"), 1);
+            registerListeners(document.getElementById("likeVisualEffects"), 1);
+            registerListeners(document.getElementById("likeDialogues"), 1);
+            registerListeners(document.getElementById("feel"), 2);
+            registerListeners(document.getElementById("ratingStars"), 3);
+            registerListeners(document.getElementById("write"), 4);
+            registerListeners(document.getElementById("submitButton"), 5);
+            registerListeners(document.getElementById("reset"), 6);
         }
-    });
 
-    var helpArray = [
-        "Choose the watched movie",
-        "What did you like about the movie?",
-        "What did you feel after watching the movie ? ",
-        "Rate the movie",
-        "Enter any comments here that you'd like us to read",
-        "Form Submitted!",
-        "Form Reseted"
-    ];
+        // utility function to help register events
+        function registerListeners(object, messageNumber) {
+            object.addEventListener("focus", function () {
+                helpText.innerHTML = helpArray[messageNumber];
+            }, false);
+            object.addEventListener("blur", function () {
+                helpText.innerHTML = helpArray[7];
+            }, false);
+        }
 
-    var helpText;
-
-    // initialize helpTextDiv and register event handlers
-    function init() {
-        helpText = document.getElementById("helpText");
-        registerListeners(document.getElementById("watched"), 0);
-        registerListeners(document.getElementById("likeStory"), 1);
-        registerListeners(document.getElementById("likeAnimation"), 1);
-        registerListeners(document.getElementById("likeMusic"), 1);
-        registerListeners(document.getElementById("likeCharacters"), 1);
-        registerListeners(document.getElementById("likeVisualEffects"), 1);
-        registerListeners(document.getElementById("likeDialogues"), 1);
-        registerListeners(document.getElementById("feel"), 2);
-        registerListeners(document.getElementById("ratingStars"), 3);
-        registerListeners(document.getElementById("write"), 4);
-        registerListeners(document.getElementById("submitButton"), 5);
-        registerListeners(document.getElementById("reset"), 6);
-    }
-
-    // utility function to help register events
-    function registerListeners(object, messageNumber) {
-        object.addEventListener("focus", function () {
-            helpText.innerHTML = helpArray[messageNumber];
-        }, false);
-        object.addEventListener("blur", function () {
-            helpText.innerHTML = helpArray[7];
-        }, false);
-    }
-
-    window.addEventListener("load", init, false);
-</script>
+        window.addEventListener("load", init, false);
+    </script>
 
 </body>
 </html>
