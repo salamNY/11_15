@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="stylingnew.css">
     <script src="script.js" defer></script>
 </head>
-
 <body>
     <nav class="navbar">
         <div class="container">
@@ -17,20 +16,10 @@
 
     <header class="hero">
         <div class="container">
-            <h2 id="personalGreeting"></h2>
+            <h2>Relive Your Childhood Favorites</h2>
             <p>Discover detailed reviews of classic animated films that shaped our childhood memories.</p>
-            <p> 
-                <a href="ratingPage.html"class="btn" style="background-color: white; color:#EC7063;" >Give a Rating!</a>
-            </p>
         </div>
     </header>
-
-    <div id="searchContainer">
-        <h2>Search for a Movie</h2>
-        <input type="text" id="searchInput" placeholder="Enter movie title..." />
-        <button id="searchButton" onclick="searchMovie()">Search</button>
-        <div id="searchResults"></div>
-      </div>
 
     <main class="container">
         <section class="movie-grid">
@@ -46,7 +35,7 @@
                 <img src="https://i.pinimg.com/originals/21/67/c8/2167c8b1301370e61ebdc006bced7cb5.jpg" alt="Finding Dory Movie Poster">
                 <div class="movie-info">
                     <h3>Finding Dory</h3>
-                    <a href="Findingdory.html" class="btn">View Details</a>
+                    <a href="findingdory.html" class="btn">View Details</a>
                 </div>
             </div>
             
@@ -132,18 +121,14 @@
         </div>
     </footer>
 </body>
-         <script>
+<footer>
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+</footer>
 
-          // string entered by the user
-         var name = window.prompt("Please enter your name");
-
-        // If a name is provided, display the personalized greeting
-        if (name!==null) {
-            document.getElementById("personalGreeting").innerText = 
-                "Hi " + name + ", relive your childhood favorites!";
-        } else {
-            document.getElementById("personalGreeting").innerText = 
-                "Hi there, relive your childhood favorites!";
-        }
-      </script>
 </html>
